@@ -25,6 +25,7 @@ function App() {
 
   const handSubmit = (event) => {
     event.preventDefault();
+    if(todo.description === '') return;
     const newTodo = [...todoList];
     newTodo.push(todo);
     setTodoList(newTodo);
@@ -36,6 +37,7 @@ function App() {
   };
 
   const handleInput = (e) => {
+    if(e.target.value.trim() === '') return;
     setTodo(() => ({ id: nanoid(), description: e.target.value }));
   };
 
